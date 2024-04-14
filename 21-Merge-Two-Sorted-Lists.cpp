@@ -11,8 +11,11 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-         ListNode *list3 = new ListNode(0);
-         ListNode *ptr1 = list1, *ptr2 = list2, *ptr3 = list3;
+        ListNode *list3 = new ListNode(0);
+        ListNode *ptr1 = list1, *ptr2 = list2, *ptr3 = list3;
+
+        // if (!list1) return list2;
+        // if(!list2)  return list1;
 
         while (ptr1 && ptr2) {
             if (ptr1->val <= ptr2->val) {
@@ -27,7 +30,7 @@ public:
         
         if (ptr1) ptr3->next = ptr1;
         else if (ptr2) ptr3->next = ptr2;
-        
+
         return list3->next;
     }
 };
