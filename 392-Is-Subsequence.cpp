@@ -4,7 +4,6 @@ public:
         int j = 0;
 
         for (int i = 0; i < t.size(); i++) {
-            if (j == s.size()) return true;
             if (t[i] == s[j]) {
                 j++;
             }
