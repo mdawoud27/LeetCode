@@ -1,4 +1,5 @@
 class MyStack {
+    // Using 2 queues
     queue<int> q1, q2;
 public:
     MyStack() {}
@@ -34,6 +35,43 @@ public:
         return q1.empty();
     }
 };
+
+/*
+class MyStack {
+    // Using 1 queue
+    queue<int> q1;
+public:
+    MyStack() {}
+
+    void push(int x) { q1.push(x); }
+
+    int pop() {
+        int length = q1.size();
+        while (length-- > 1) {
+            q1.push(q1.front());
+            q1.pop();
+        }
+        int top = q1.front();
+        q1.pop();
+        return top;
+    }
+
+    int top() {
+        int length = q1.size();
+        while (length-- > 1) {
+            q1.push(q1.front());
+            q1.pop();
+        }
+        int top = q1.front();
+        q1.push(top);
+        q1.pop();
+        return top;
+    }
+
+    bool empty() { return q1.empty(); }
+};
+
+*/
 
 /**
  * Your MyStack object will be instantiated and called as such:
