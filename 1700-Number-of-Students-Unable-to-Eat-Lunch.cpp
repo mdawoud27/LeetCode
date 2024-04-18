@@ -15,3 +15,8 @@ public:
         return students.size();
     }
 };
+
+/*
+The purpose of the condition `find(students.begin(), students.end(), sandwiches[0]) != students.end()`
+is to check whether at least one student in the queue prefers the type of sandwich at the top of the stack.
+*/
