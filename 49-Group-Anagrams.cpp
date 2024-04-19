@@ -5,15 +5,15 @@ public:
         IOS 
         unordered_map<string, vector<string>> mp;
 
-        for (auto str : strs) {
+        for (auto& str : strs) {
             string word = str;
             sort(word.begin(), word.end());
             mp[word].push_back(str);
         }
 
         vector<vector<string>> result;
-        for (auto keyValue : mp)
-            result.push_back(keyValue.second);
+        for (auto& kv : mp)
+            result.push_back(kv.second);
 
         return result;
     }
