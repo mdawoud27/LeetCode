@@ -4,16 +4,16 @@ public:
     string mergeAlternately(string word1, string word2) {
         IOS
         string mergedStr = "";
-        int minLength = min(word1.size(), word2.size());
-
-        for (int i = 0; i < minLength; i++) {
-            mergedStr += word1[i];
-            mergedStr += word2[i];
+        int i = 0, j = 0;
+        
+        while (i < word1.size() && j < word2.size()) {
+            mergedStr += word1[i++];
+            mergedStr += word2[j++];
         }
 
-        mergedStr += word1.substr(minLength);
-        mergedStr += word2.substr(minLength);
-
+        while (i < word1.size()) mergedStr += word1[i++];
+        while (j < word2.size()) mergedStr += word2[j++];
+        
         return mergedStr;
     }
 };
