@@ -13,7 +13,6 @@ public:
         while (i < m) sortedArray.push_back(nums1[i++]);
         while (j < n) sortedArray.push_back(nums2[j++]);
 
-        for (int k = 0; k < m + n; k++)
-            nums1[k] = sortedArray[k];
+        nums1 = sortedArray;
     }
 };
