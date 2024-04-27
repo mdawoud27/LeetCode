@@ -37,3 +37,9 @@ public:
         return true;
     }
 };
+
+/*
+bool isStrictlyPalindromic(int n) {
+    return false;
+}
+*/
