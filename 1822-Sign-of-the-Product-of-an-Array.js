@@ -3,9 +3,13 @@
  * @return {number}
  */
 var arraySign = function (nums) {
-    let product = nums.reduce((acc, cur) => acc *= cur, 1);
+    let countMinus = 0;
 
-    const signFunc = num => num > 0 ? 1 : num < 0 ? -1 : 0;
+    for (let num of nums) {
+        if (num === 0) return 0;
+        if (num < 0) countMinus++;
+    }
 
-    return signFunc(product);
+    if (countMinus % 2 === 0) return 1;
+    else return -1;
 };
