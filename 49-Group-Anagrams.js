@@ -2,17 +2,17 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function(strs) {
-    let mp= new Map();
+var groupAnagrams = function (strs) {
+    let answer = [];
+    let anagram = {};
 
-    for (const str of strs) {
-        const sortedStr = str.split('').sort().join('');
-        if (!mp.has(sortedStr)) mp.set(sortedStr, []);
-        mp.get(sortedStr).push(str);
+    for (let str of strs) {
+        let strSorted = str.split('').sort().join('');
+        anagram[strSorted] ? anagram[strSorted].push(str) : anagram[strSorted] = [str];
     }
-    let result = [];
-    for (const value of mp.values())
-        result.push(value);
 
-    return result;
+    for (let value of Object.values(anagram))
+        answer.push(value);
+
+    return answer;
 };
