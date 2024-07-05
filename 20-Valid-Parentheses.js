@@ -3,20 +3,18 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-    let bracketStack = [];
-    let bracketPairs = {
-        ')': '(',
-        '}': '{',
-        ']': '['
-    };
+    if (s.length % 2 !== 0) return false;
 
+    let bracketStack = [];
     for (let char of s) {
-        if (char === '(' || char === '{' || char === '[') {
+        if (char === ')' && bracketStack[bracketStack.length - 1] === '(')
+            bracketStack.pop();
+        else if (char === ']' && bracketStack[bracketStack.length - 1] === '[')
+            bracketStack.pop();
+        else if (char === '}' && bracketStack[bracketStack.length - 1] === '{')
+            bracketStack.pop();
+        else
             bracketStack.push(char);
-        } else if (char === ')' || char === '}' || char === ']') {
-            if (!bracketStack.length || bracketStack.pop() !== bracketPairs[char])
-                return false;
-        }
     }
     return !bracketStack.length;
 };
