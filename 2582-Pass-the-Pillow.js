@@ -3,10 +3,16 @@
  * @param {number} time
  * @return {number}
  */
-var passThePillow = function(n, time) {
-    const cycleLength = 2 * (n - 1);
-    const remainingTime = time % cycleLength;
+var passThePillow = function (n, time) {
+    let count = 1;
+    let directionFlag = true;
 
-    if (remainingTime <= n - 1) return remainingTime + 1;
-    else return n - (remainingTime - (n - 1));
+    for (let i = 0; i < time; i++) {
+        if (count === 1) directionFlag = true;
+        if (count === n) directionFlag = false;
+
+        count = directionFlag === true ? count + 1 : count - 1;
+    }
+
+    return count;
 };
