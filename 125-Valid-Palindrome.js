@@ -3,7 +3,7 @@
  * @return {boolean}
  */
 var isPalindrome = function (s) {
-    let temp = \\;
+    /*let temp = \\;
     for (let char of s.toLowerCase()) {
         if (
             (char >= 'a' && char <= 'z') ||
@@ -18,5 +18,8 @@ var isPalindrome = function (s) {
             j--;
         } else return false;
     }
-    return true;
+    return true; */
+
+    let str = s.toLowerCase().replace(/[^a-z0-9]/g, \\);
+    return str.split(\\).reverse().join(\\) === str;
 };
