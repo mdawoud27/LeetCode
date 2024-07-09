@@ -11,12 +11,10 @@ public:
     bool hasCycle(ListNode *head) {
         ListNode *fast = head;
 
-        while (fast && fast->next) {       
+        while (fast && fast->next) {
             head = head->next;
             fast = fast->next->next;
-            
-            if (head == fast) 
-                return true;
+            if (head == fast) return true;
         }
         return false;
     }
