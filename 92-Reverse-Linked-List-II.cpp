@@ -21,8 +21,8 @@ public:
             current = current->next;
         }
 
-        ListNode *leftSubList = prev; // sublist before `left` = 1
-        ListNode *tail = current; // points to 2
+        ListNode *leftSubList = prev;
+        ListNode *tail = current;
 
         for (int i = 0; i <= right - left; i++) {
             ListNode* next = current->next;
