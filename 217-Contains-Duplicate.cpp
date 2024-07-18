@@ -1,13 +1,13 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(0);
-        sort(nums.begin(), nums.end());
+        unordered_set<int> seen;
 
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums[i] == nums[i - 1])
+        for (int num : nums) {
+            if (seen.count(num))
                 return true;
+            seen.insert(num);
         }
         return false;
-    }
+    } // O(n) and space is O(n)
 };
