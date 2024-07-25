@@ -5,9 +5,10 @@ public:
 
         while (i < j) {
             if (numbers[i] + numbers[j] < target) i++;
-            if (numbers[i] + numbers[j] > target) j--;
-            if (numbers[i] + numbers[j] == target) break;
+            else if (numbers[i] + numbers[j] > target) j--;
+            else
+                return {++i, ++j};
         }
-        return {++i, ++j};
+        return {};
     }
 };
