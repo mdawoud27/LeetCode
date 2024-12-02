@@ -10,6 +10,7 @@ var containsDuplicate = function (nums) {
     return nums.length !== setNums.size;
     */
 
+    /**
     // Approach 2: array and hashing
     const result = {};
     let flag = false;
@@ -23,5 +24,18 @@ var containsDuplicate = function (nums) {
         }
     }
 
+    return flag;
+    */
+
+    // Approach 3: sort the array and compare between their elements
+    nums.sort((a, b) => a - b);
+    let flag = false;
+
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] === nums[i - 1]) {
+            flag = true;
+            break;
+        }
+    }
     return flag;
 };
