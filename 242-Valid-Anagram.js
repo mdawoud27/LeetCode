@@ -4,8 +4,28 @@
  * @return {boolean}
  */
 var isAnagram = function (s, t) {
-    s = s.split("").sort().join("");
-    t = t.split("").sort().join("");
+    if (s.length !== t.length) return false;
+
+    // Aproach 1: sort and compare
+    // s = s.split("").sort().join("");
+    // t = t.split("").sort().join("");
+    // return s === t;
+
+    // Approch 2: hashing
+    const result = {};
+
+    for (const letter of s) {
+        result[letter] ? result[letter]++ : result[letter] = 1;
+    }
+
+    for (const letter of t) {
+        result[letter] ? result[letter]-- : result[letter] = 1;
+    }
     
-    return s === t;
+    let valueSum = 0;
+    for (const key in result) {
+        valueSum += result[key];
+    }
+
+    return valueSum === 0;
 };
