@@ -4,16 +4,15 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    const result = {};
+    let result = new Map();
 
     for (let i = 0; i < nums.length; ++i) {
-        const complement = target - nums[i];
+        const comp = target - nums[i];
 
-        if (result.hasOwnProperty(complement)) {
-            return [result[complement], i];
+        if (result.has(comp)) {
+            return [result.get(comp), i];
+        } else {
+            result.set(nums[i], i);
         }
-
-        result[nums[i]] = i;
     }
-    return [];
 };
