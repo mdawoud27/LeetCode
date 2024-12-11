@@ -2,17 +2,19 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function (strs) {
-    let answer = [];
-    let anagram = {};
+var groupAnagrams = function(strs) {
+    const result = new Map();
 
-    for (let str of strs) {
-        let strSorted = str.split('').sort().join('');
-        anagram[strSorted] ? anagram[strSorted].push(str) : anagram[strSorted] = [str];
+    // Approach 1: hashing with sorting
+    for (const word of strs) {
+        const sortedWord = word.split('').sort().join('');
+
+        if (result.has(sortedWord)) {
+            result.get(sortedWord).push(word)
+        } else {
+            result.set(sortedWord, [word]);
+        }
     }
 
-    for (let value of Object.values(anagram))
-        answer.push(value);
-
-    return answer;
+    return Array.from(result.values());
 };
