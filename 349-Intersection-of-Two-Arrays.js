@@ -4,8 +4,29 @@
  * @return {number[]}
  */
 var intersection = function (nums1, nums2) {
-    const nums1Set = new Set(nums1); // O(n) - space
-    const nums2Set = new Set(nums2); // O(m) - space
+    const nums1Map = new Map();  // o(n) - space
+    const nums2Map = new Map();  // o(m) - space
+    const result = [];
 
-    return [...new Set([...nums1Set].filter(num => nums2Set.has(num)))]; // O(n + m) - time
+    for (const num of nums1) { // o(n) - time
+        nums1Map.has(num)
+            ? nums1Map.set(num, nums1Map.get(num) + 1)
+            : nums1Map.set(num, 1);
+    }
+
+    for (const num of nums2) { // o(m) - time
+        nums2Map.has(num)
+            ? nums2Map.set(num, nums2Map.get(num) + 1)
+            : nums2Map.set(num, 1);
+    }
+
+    for (const key of nums1Map.keys()) { // o(n) - time
+        if (nums2Map.has(key)) {
+            result.push(key);
+        }
+    }
+
+    // space: O(n + m)
+    // time : O(n + m)
+    return result;
 };
