@@ -10,5 +10,4 @@ var majorityElement = function (nums) {
 
         if (result.get(num) > nums.length / 2) return num;
     }
-    return null;
 };
