@@ -9,7 +9,6 @@ public:
                 k++;
             }
         }
-
         return k;
     }
 };
