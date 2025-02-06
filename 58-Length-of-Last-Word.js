@@ -3,6 +3,15 @@
  * @return {number}
  */
 var lengthOfLastWord = function (s) {
-    const splitedStr = s.trim().split(' ');
-    return splitedStr[splitedStr.length - 1].length;
+    let lastWordLen = 0, currentWordLen = 0;
+
+    for (let i = 0; i < s.length; ++i) {
+        if (s[i] === ' ') {
+            currentWordLen = 0;
+        } else {
+            currentWordLen++;
+            lastWordLen = currentWordLen;
+        }
+    }
+    return lastWordLen;
 };
