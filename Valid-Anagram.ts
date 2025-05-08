@@ -1,11 +1,15 @@
 function isAnagram(s: string, t: string): boolean {
     if (s.length !== t.length) return false;
 
-    const count = new Array(26).fill(0);
-    for (let i = 0; i < s.length; ++i) {
-        count[s.charCodeAt(i) - 97]++;
-        count[t.charCodeAt(i) - 97]--;
+    const map = new Map<string, number>();
+    for (const char of s) {
+        map.set(char, (map.get(char) || 0) + 1);
     }
 
-    return count.every(val => val === 0);
+    for (const char of t) {
+        if (!map.has(char)) return false;
+        map.set(char, map.get(char) - 1);
+        if (map.get(char) === 0) map.delete(char);
+    }
+    return map.size === 0;
 };
