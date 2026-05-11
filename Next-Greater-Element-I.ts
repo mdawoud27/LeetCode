@@ -31,4 +31,6 @@
 31    while (stack.length) map.set(stack.pop(), -1);
 32
 33    return nums1.map(num => map.get(num));
-34};
+34
+35    // O(n)
+36};
