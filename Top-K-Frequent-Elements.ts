@@ -9,7 +9,7 @@
 9
 10    const result = [...map.entries()].sort((a, b) => b[1] - a[1]);
 11
-12    for (const [key, val] of result) {
+12    for (const [key] of result) {
 13        if (k--) ans.push(key);
 14        else break;
 15    }
