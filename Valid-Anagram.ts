@@ -4,11 +4,11 @@
 4    const map = new Map<string, number>();
 5
 6    for (const char of s) {
-7        map.set(char, (map.get(char) || 0) + 1);
+7        map.set(char, (map.get(char) ?? 0) + 1);
 8    }
 9
 10    for (const char of t) {
-11        map.set(char, (map.get(char) || -1) - 1);
+11        map.set(char, (map.get(char) ?? -1) - 1);
 12    }
 13
 14    for (const [key, value] of map) {
