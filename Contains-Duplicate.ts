@@ -1,9 +1,10 @@
-function containsDuplicate(nums: number[]): boolean {
-    const map = new Map<number, number>();
-
-    for (let i = 0; i < nums.length; ++i) {
-        if (map.has(nums[i])) return true;
-        map.set(nums[i], i);
-    }
-    return false;
-};
+1function containsDuplicate(nums: number[]): boolean {
+2    const map = new Map<number, number>();
+3
+4    for (const num of nums) {
+5        map.set(num, (map.get(num) ?? 0) + 1);
+6        if (map.get(num) > 1) return true;
+7    }
+8
+9    return false;
+10};
