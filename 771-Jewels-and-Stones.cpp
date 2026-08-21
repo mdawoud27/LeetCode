@@ -1,13 +1,13 @@
 class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
-        map<char, bool> jewelsMap;
+        bool isJewel[128] = {};
         int count = 0;
 
-        for (char j : jewels) jewelsMap[j] = true;
+        for (char j : jewels) isJewel[j] = true;
 
         for (char s : stones) {
-            if (jewelsMap[s]) count++;
+            if (isJewel[s]) count++;
         }
         return count;
     }
