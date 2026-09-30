@@ -10,7 +10,7 @@ public:
             mp[t[i]]--;
         }
 
-        for (auto obj : mp) if (obj.second != 0) return false;
+        for (auto [character, count] : mp) if (count != 0) return false;
         return true; 
     }
 };
