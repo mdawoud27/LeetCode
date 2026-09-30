@@ -1,13 +1,12 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> seen;
+        unordered_map<int, bool> mp;
 
-        for (int num : nums) {
-            if (seen.count(num))
-                return true;
-            seen.insert(num);
+        for (int i = 0; i < nums.size(); i++) {
+            if(mp.count(nums[i])) return true;
+            mp[nums[i]] = true;
         }
         return false;
-    } // O(n) and space is O(n)
+    }
 };
