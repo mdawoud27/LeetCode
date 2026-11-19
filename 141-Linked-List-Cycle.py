@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         slow = head
@@ -13,8 +14,7 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
 
-            if slow == fast: return True
+            if slow is fast:
+                return True
 
         return False
-
-        
